@@ -1,6 +1,6 @@
-import {parse, ParserOptions} from '@babel/parser';
-import traverse from '@babel/traverse';
-import generate from '@babel/generator';
+import {parse} from '@babel/parser';
+import {default as traverse} from '@babel/traverse';
+import {default as generate} from '@babel/generator';
 import * as rollup from 'rollup';
 
 /**
