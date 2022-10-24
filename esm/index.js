@@ -1,6 +1,6 @@
 import {parse} from '@babel/parser';
-import {default as traverse} from '@babel/traverse';
-import {default as generate} from '@babel/generator';
+import traverse from '@babel/traverse';
+import generate from '@babel/generator';
 import * as rollup from 'rollup';
 
 /**
@@ -32,7 +32,7 @@ export function transformTaggedContent(content, options = {}) {
 
 	const ast = parse(content, parserOptions);
 
-	traverse(ast, {
+	traverse.default(ast, {
 		TaggedTemplateExpression(path) {
 			if (tagsToProcess.includes(path.node.tag.name)) {
 				for (const quasi of path.node.quasi.quasis) {
@@ -44,7 +44,7 @@ export function transformTaggedContent(content, options = {}) {
 		}
 	});
 
-	return generate(ast);
+	return generate.default(ast);
 }
 
 /**
